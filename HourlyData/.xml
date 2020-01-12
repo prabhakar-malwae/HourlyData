@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HourlyData</name>
+    </assembly>
+    <members>
+        <member name="T:HourlyData.Controllers.HomeController">
+            <summary>
+            HomeController with set of Action methods
+            </summary>
+        </member>
+        <member name="F:HourlyData.Controllers.HomeController.logger">
+            <summary>
+            private property for logger
+            </summary>
+        </member>
+        <member name="M:HourlyData.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{HourlyData.Controllers.HomeController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:HourlyData.Controllers.HomeController"/> struct.
+            </summary>
+            <param name="logger">logger to log</param>
+        </member>
+        <member name="M:HourlyData.Controllers.HomeController.Index">
+            <summary>
+            Index Action method 
+            </summary>
+            <returns>Returns the ActionResult</returns>
+        </member>
+        <member name="M:HourlyData.Controllers.HomeController.GetIntervalData">
+            <summary>
+            To to get IntervalData as Json string.
+            </summary>      
+            <returns>Json String</returns>
+        </member>
+        <member name="M:HourlyData.Controllers.HomeController.Privacy">
+            <summary>
+            To to get the tenant information from Ajax function for Update Tenant
+            </summary>     
+            <returns>Returns ActionResult</returns>
+        </member>
+        <member name="T:HourlyData.Models.AssignmentDbContext">
+            <summary>
+            AssignmentDbContext DB Context class 
+            </summary>
+        </member>
+        <member name="M:HourlyData.Models.AssignmentDbContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HourlyData.Models.AssignmentDbContext"/> struct.
+            </summary>
+        </member>
+        <member name="M:HourlyData.Models.AssignmentDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{HourlyData.Models.AssignmentDbContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:HourlyData.Models.AssignmentDbContext"/> struct.
+            </summary>
+            <param name="options">options set for db context</param>
+        </member>
+        <member name="P:HourlyData.Models.AssignmentDbContext.IntervalData">
+            <summary>
+            IntervalData db set.
+            </summary>
+        </member>
+        <member name="M:HourlyData.Models.AssignmentDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            OnConfiguring method to handle connection string
+            </summary>
+            <param name="optionsBuilder">optionsBuilder to configure connection strings</param>
+        </member>
+        <member name="M:HourlyData.Models.AssignmentDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            OnModelCreating method to configure ModelProperties 
+            </summary>
+            <param name="modelBuilder">options set for db context</param>
+        </member>
+        <member name="T:HourlyData.Models.IntervalData">
+            <summary>
+            IntervalData Entity Model class 
+            </summary>
+        </member>
+        <member name="P:HourlyData.Models.IntervalData.Id">
+            <summary>
+            ID column
+            </summary>
+        </member>
+        <member name="P:HourlyData.Models.IntervalData.DeliveryPoint">
+            <summary>
+            DeliveryPoint column
+            </summary>
+        </member>
+        <member name="P:HourlyData.Models.IntervalData.Date">
+            <summary>
+            Date column
+            </summary>
+        </member>
+        <member name="P:HourlyData.Models.IntervalData.TimeSlot">
+            <summary>
+            TimeSlot column
+            </summary>
+        </member>
+        <member name="P:HourlyData.Models.IntervalData.SlotVal">
+            <summary>
+            SlotVal column
+            </summary>
+        </member>
+        <member name="T:HourlyData.Program">
+            <summary>
+            Program startup class 
+            </summary>
+        </member>
+        <member name="M:HourlyData.Program.Main(System.String[])">
+            <summary>
+            main method 
+            </summary>
+        </member>
+        <member name="M:HourlyData.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder method 
+            </summary>
+        </member>
+        <member name="T:HourlyData.Startup">
+            <summary>
+            Startup class 
+            </summary>
+        </member>
+        <member name="M:HourlyData.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HourlyData.Startup"/> struct.
+            </summary>
+            <param name="configuration">configuration IConfiguration</param>
+        </member>
+        <member name="P:HourlyData.Startup.Configuration">
+            <summary>
+            Configuration private class 
+            </summary>
+        </member>
+        <member name="M:HourlyData.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">configuration services</param>
+        </member>
+        <member name="M:HourlyData.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">app IApplicationBuilder object</param>
+            <param name="env">env IWebHostEnvironment object</param>
+        </member>
+    </members>
+</doc>
