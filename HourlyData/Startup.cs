@@ -5,6 +5,8 @@
 namespace HourlyData
 {
     using AutoMapper;
+    using HourlyData.ServiceClass;
+    using HourlyData.ServiceInterface;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -43,6 +45,7 @@ namespace HourlyData
             });
             services.AddSession();
             services.AddAutoMapper(typeof(Startup));
+            services.AddSingleton<IIntervalDataService, IntervalDataService>();
         }
 
         /// <summary>

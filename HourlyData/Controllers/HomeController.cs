@@ -4,11 +4,8 @@
 
 namespace HourlyData.Controllers
 {
-    using HourlyData.Models;
+    using HourlyData.ServiceInterface;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
-    using System.Linq;
 
     /// <summary>
     /// HomeController with set of Action methods
@@ -16,17 +13,17 @@ namespace HourlyData.Controllers
     public class HomeController : Controller
     {
         /// <summary>
-        /// private property for logger
+        /// private property for IInterrvalDataService
         /// </summary>
-        private readonly ILogger<HomeController> logger;
+        private readonly IIntervalDataService intervalDataService;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeController"/> struct.
-        /// </summary>
-        /// <param name="logger">logger to log</param>
-        public HomeController(ILogger<HomeController> logger)
+        /// </summary>      
+        public HomeController(IIntervalDataService intervalDataService)
         {
-            this.logger = logger;
+            this.intervalDataService = intervalDataService;
         }
 
         /// <summary>
@@ -45,24 +42,8 @@ namespace HourlyData.Controllers
         [HttpGet]
         public string GetIntervalData()
         {
-            AssignmentDbContext dbContext = new AssignmentDbContext();
-
-            /* The below Linq code groups the data on TimSlot Hour 
-             * and selects the required column data to generate the response object*/
-
-            var intervalData = dbContext.IntervalData
-                .AsEnumerable()
-                .GroupBy(row => row.TimeSlot.Hours)
-                .Select(grp => new
-                {
-                    TimeSlot = grp.Key,
-                    SlotValue = grp.Select(u => u.SlotVal).Sum() / 2,
-                    DeliveryPoint = grp.Select(u => u.DeliveryPoint).FirstOrDefault(),
-                    Date = grp.Select(u => u.Date).FirstOrDefault(),
-                    Id = grp.Select(u => u.Id).FirstOrDefault()
-                });
-
-            return JsonConvert.SerializeObject(intervalData.ToArray());
+            //Returns Interval Data
+            return this.intervalDataService.IntervalData();
         }
 
         /// <summary>

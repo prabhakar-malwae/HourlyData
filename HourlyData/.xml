@@ -9,16 +9,15 @@
             HomeController with set of Action methods
             </summary>
         </member>
-        <member name="F:HourlyData.Controllers.HomeController.logger">
+        <member name="F:HourlyData.Controllers.HomeController.intervalDataService">
             <summary>
-            private property for logger
+            private property for IInterrvalDataService
             </summary>
         </member>
-        <member name="M:HourlyData.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{HourlyData.Controllers.HomeController})">
+        <member name="M:HourlyData.Controllers.HomeController.#ctor(HourlyData.ServiceInterface.IIntervalDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:HourlyData.Controllers.HomeController"/> struct.
-            </summary>
-            <param name="logger">logger to log</param>
+            </summary>      
         </member>
         <member name="M:HourlyData.Controllers.HomeController.Index">
             <summary>
@@ -114,6 +113,26 @@
         <member name="M:HourlyData.Program.CreateHostBuilder(System.String[])">
             <summary>
             CreateHostBuilder method 
+            </summary>
+        </member>
+        <member name="T:HourlyData.ServiceClass.IntervalDataService">
+            <summary>
+            IntervalDataService implements the interface IIntervalDataService 
+            </summary>
+        </member>
+        <member name="M:HourlyData.ServiceClass.IntervalDataService.IntervalData">
+            <summary>
+            IntervalData method returns jsonstring.
+            </summary>
+        </member>
+        <member name="T:HourlyData.ServiceInterface.IIntervalDataService">
+            <summary>
+            Interface for Interval Data Service 
+            </summary>
+        </member>
+        <member name="M:HourlyData.ServiceInterface.IIntervalDataService.IntervalData">
+            <summary>
+            IntervalData method returns jsonstring.
             </summary>
         </member>
         <member name="T:HourlyData.Startup">
